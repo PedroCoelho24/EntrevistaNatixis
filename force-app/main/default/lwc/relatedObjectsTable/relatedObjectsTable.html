@@ -1,0 +1,23 @@
+<template>
+	<div if:true={isLoading}>
+		<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+	</div>
+	<div if:false={isLoading}>
+		<div if:true={errorCheck}>
+			<h1 class="errorMessage">OOPS! SOMETHING WENT WRONG</h1>
+			<p>Something went wrong! Please provide your Salesforce admin with the following message: {error}</p>
+		</div>
+		<div if:false={errorCheck}>
+			<h1 class="tableTitle">Table</h1>
+			<div style="height: 300px;">
+				<lightning-datatable
+					key-field="objectId"
+					data={records}
+					columns={columns}
+					hide-checkbox-column=true>
+			</lightning-datatable>
+			</div>
+		</div>
+
+	</div>
+</template>

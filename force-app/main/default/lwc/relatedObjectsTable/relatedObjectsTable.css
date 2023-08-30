@@ -1,0 +1,12 @@
+h1 {
+	font-size: 40px;
+
+}
+
+h1.errorMessage {
+	color: red;
+}
+
+h1.tableTitle {
+	color: blue;
+}
