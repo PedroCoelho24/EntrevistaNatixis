@@ -3,8 +3,8 @@ public class relatedObjectsTableController {
     @AuraEnabled
     public static List<objectWrapper> listOfRelatedObjects(String recordId) {
         try {
-            List<Object_B__c> listOfObjectsB = [SELECT Id, Name FROM Object_B__c WHERE Object_A__c = :recordId];
-            List<Object_C__c> listOfObjectsC = [SELECT Id, Name FROM Object_C__c WHERE Object_B__r.Object_A__c = :recordId];
+            List<Object_B__c> listOfObjectsB = [SELECT Id, Name FROM Object_B__c WHERE Object_A__c = :recordId LIMIT 5000];
+            List<Object_C__c> listOfObjectsC = [SELECT Id, Name FROM Object_C__c WHERE Object_B__r.Object_A__c = :recordId LIMIT 5000];
             List<objectWrapper> listOfResults = new List<objectWrapper>();
             for(Object_B__c objB : listOfObjectsB)
             {
